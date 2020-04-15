@@ -29,7 +29,6 @@ function writeIntro() {
         } else {
             board.innerHTML += `<br>`;
         }
-
         i++;
         setTimeout(writeIntro, speed);
     }
@@ -37,7 +36,7 @@ function writeIntro() {
 function helpin(newText, newSpeed) {
     txt += newText;
     speed = newSpeed;
-    writeIntro(50);
+    writeIntro();
 }
 
 console.log("okay");
@@ -95,48 +94,40 @@ window.addEventListener('keydown', function (e) {
 });
 
 function getAnAnswer(s) {
-    const str = s.trim().slice(0, 30);
-    board.innerHTML += `<br>> ${str}<br>`;
+    const ss = s.trim().slice(0, 30);
+    board.innerHTML += `<br>> ${ss}<br>`;
+    const str = ss.toUpperCase();
     switch (str) {
-        case "w":
         case "W":
             helpin(`;I'm heading Forward;`, 50);
             break;
-        case "Help":
-        case "help":
         case "HELP":
             helpin(help, 50);
             break;
         case "A":
-        case "a":
-        case "s":
         case "S":
         case "D":
-        case "d":
         case "J":
-        case "j":
         case "K":
-        case "k":
-        case "i":
         case "I":
         case "L":
-        case "l":
-        case "Help":
-        case "help":
         case "HELP":
-        case "Observe":
-        case "observe":
         case "OBSERVE":
-        case "pick":
-        case "Pick":
         case "PICK":
             helpin(`;under constuction sry;`, 50);
             break;
-        case "moving test":
-            helpin(`;blink blink blink;`, 50);
-        break;
+        case `MOVING`:
+            console.log('triggered');
+            movingTest();
+            break;
         default:
             helpin(`;I don't understand;`, 20);
             break;
     }
+}
+
+function movingTest() {
+    const x = document.getElementById("moving");
+    x.style.display = "block";
+    setTimeout(function(){ document.getElementById("moving").style.display = "none"; }, 6000);
 }
