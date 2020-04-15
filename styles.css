@@ -1,0 +1,137 @@
+@font-face {
+    font-family: titleFont;
+    src: url(./fonts/roguehero3d.ttf);
+}
+
+@font-face {
+    font-family: mainFont;
+    src: url(./fonts/AvenirNext-Regular.ttf);
+}
+
+@font-face {
+    font-family: heavy;
+    src: url(./fonts/AvenirNext-Bold.ttf);
+}
+
+:root {
+    --black: rgb(50, 50, 50);
+    --green: #88FBC7;
+    --blu: #D5FFEC;
+}
+
+.title {
+    font-family: titleFont;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+body {
+    cursor: none!important;
+    box-sizing: border-box;
+    background-color: var(--black);
+    color: var(--green);
+    font-family: mainFont;
+}
+
+.main {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -300px 0 0 -400px;
+}
+
+.instructions, .content {
+    border-style: solid;
+    border-width: 4px;
+    border-color: var(--green);
+}
+
+.context {
+    margin: 10px;
+    padding: 10px;
+    width: 96%;
+    height: 54%;
+    position: relative;
+    overflow: hidden;
+}
+
+div.context span {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.instructions {
+    color: var(--blu);
+    padding: 10px;
+    margin: 0 0 0 20px;
+    float: left;
+    width: 200px;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+.instructions span {
+    font-family: heavy;
+}
+
+.content {
+    float: left;
+    width: 600px;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+.input {
+    display: inline-flex;
+    overflow: hidden;
+    height: 22px;
+    width: 582px;
+    box-sizing: border-box;
+    background-color: var(--green);
+    color: var(--black);
+    font-size: 1em;
+    font-family: mainFont;
+    padding-left: 10px;
+}
+
+.monitor {
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* the blinking little shit */
+
+.blinkin {
+    width: 3px;
+    margin-top: 2px;
+    height: 14px;
+    background-color: var(--black);
+    font-size: 0.5em;
+    padding: 4px 0 0 10px;
+    /* margin-left: 5px; */
+    overflow: hidden;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
